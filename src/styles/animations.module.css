@@ -1,0 +1,124 @@
+/* ── Runway hero lights ── */
+@keyframes blink {
+  0%, 100% { opacity: 0.1; }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 8px #FFFFFF, 0 0 16px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.light {
+  display: inline-block;
+  width: 14px;
+  height: 6px;
+  border-radius: 3px;
+  background: #FFFFFF;
+  opacity: 0.1;
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ── Radar spinner ── */
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.radarSweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 75%, rgba(255, 255, 255, 0.45) 100%);
+  animation: radarSweep 2s linear infinite;
+}
+
+/* ── Score bar edge lights ── */
+@keyframes rlightPulse {
+  0%, 100% { opacity: 0.3; }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 6px #FFFFFF, 0 0 12px rgba(255, 255, 255, 0.35);
+  }
+}
+
+.rlight {
+  display: inline-block;
+  width: 10px;
+  height: 5px;
+  border-radius: 2px;
+  background: #FFFFFF;
+  opacity: 0.3;
+  animation: rlightPulse 1.5s ease-in-out infinite;
+}
+
+/* ── Loading text fade ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* ── Staggered entrance reveal ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fadeUp {
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fadeUpDelay1 { animation-delay: 0.15s; }
+.fadeUpDelay2 { animation-delay: 0.3s; }
+.fadeUpDelay3 { animation-delay: 0.45s; }
+
+/* ── Departures ticker marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 36s linear infinite;
+}
+
+/* ── Boarding pass reveal ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.slideUp {
+  animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Departure board row flip ── */
+.dbRow {
+  opacity: 0;
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  perspective: 400px;
+}
+
+.dbRowVisible {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+/* ── CTA reveal ── */
+.ctaReveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ctaRevealed {
+  opacity: 1;
+  transform: translateY(0);
+}
